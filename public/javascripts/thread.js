@@ -34,7 +34,6 @@ var thread_content={
         // 用 cheerio 解析 html 資料
         var $ = cheerio.load(body);
         thread_content.body=body;
-        thread_content.author[0]=$("meta[name='author']").attr('content');
         thread_content.title=$("meta[name='title']").attr('content');
         // 篩選有興趣的資料
         for(var i=0;i<=30;i++){
@@ -47,12 +46,10 @@ var thread_content={
           var author=$("table.repliers").eq(i).children("tr").attr("username");
           //console.log("No." + i + " Title: " + title + "Author: " + author);
           thread_content.id[i]=i+1;
-          if(i!=0){
-            thread_content.author[i]=author;
-            console.log(author);
-          }
+          thread_content.author[i]=author;
           thread_content.comment[i]=comment;
         }
+        thread_content.author[0]=$("meta[name='author']").attr('content');
         callback(res, thread_content);
 
       } else {
