@@ -18,6 +18,7 @@ function handle_icon(content_html){
 
 //var url = "http://www.wunderground.com/weather-forecast/zmw:00000.1.59358";
 var thread_content={
+  body:[],
   id:[],
   author:[],
   comment:[],
@@ -32,6 +33,7 @@ var thread_content={
 
         // 用 cheerio 解析 html 資料
         var $ = cheerio.load(body);
+        thread_content.body=body;
         thread_content.author[0]=$("meta[name='author']").attr('content');
         thread_content.title=$("meta[name='title']").attr('content');
         // 篩選有興趣的資料
