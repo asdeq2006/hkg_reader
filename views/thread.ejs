@@ -37,7 +37,7 @@
               <td><%- thread_content.title %></td>
             </tr>
       <% for(var i=0;i<=25;i++){ %>
-          <% if (true){ %>
+          <% if (thread_content.comment[i]!=null){ %>
             <tr>
               <td style="max-width:80px;border-right: solid lightgrey;word-break:break-all;"><%-thread_content.author[i] %></td>
               <td style="max-width:800px;word-break:break-all;"><%-thread_content.comment[i] %></td>
@@ -47,6 +47,5 @@
       </table>
       <A class="btn btn-warning" HREF="javascript:history.go(-1)">返回</a>
     </div>
-    <%=thread_content.body%>
   </body>
 </html>
