@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Web Crawler</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="page-header" >Golden Reader</h1>
+      <div style="color: blue;">您現在聚腳在  吹水台內。</div>
+      </br>
+      <div class="panel panel-default">
+        <table class="table table-hover ">
+            <tr style="background-color: lightblue">
+              <td>編號</td>
+              <td>標題</td>
+              <td>發貼人</td>
+            </tr>
+        <% for(var i=0;i<=29;i++){ %>
+            <tr>
+            <td><%=content_list.id[i] %></td>
+            <td><a href="/thread?message=<%= content_list.messageID[i] %>"><%-content_list.title[i] %></a></td>
+            <td><%-content_list.author[i] %></td>
+            </tr>
+        <% } %>
+        </table>
+      </div>
+      <a class="btn btn-warning" href="/?page=<%= 1%>">第一頁</a>
+      <a class="btn btn-warning" href="/?page=<%= pages<=1?1:pages-1 %>">上一頁</a>
+      <a class="btn btn-warning" href="/?page=<%= pages+1%>">下一頁</a>
+    </div>
+  </body>
+</html>
