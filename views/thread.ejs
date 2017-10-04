@@ -39,7 +39,13 @@
       <% for(var i=0;i<=25;i++){ %>
           <% if (thread_content.comment[i]!=null){ %>
             <tr>
-              <td style="max-width:80px;border-right: solid lightgrey;word-break:break-all;"><%-thread_content.author[i] %></td>
+              <td style="max-width:80px;border-right: solid lightgrey;word-break:break-all;">
+              <% if (thread_content.author[i]!=null){ %>
+                <%-thread_content.author[i] %>
+              <% }else{ %>
+                <%=1%>
+              <% } %>
+              </td>
               <td style="max-width:800px;word-break:break-all;"><%-thread_content.comment[i] %></td>
             </tr>
           <% } %>
