@@ -43,7 +43,7 @@ var thread_content={
           }else{
             var comment=raw_comment;
           }
-          var author=$(".repliers").eq(i);
+          vvar author=$(".repliers").eq(i).children("tbody").children("tr").attr('username');
           //console.log("No." + i + " Title: " + title + "Author: " + author);
           thread_content.id[i]=i+1;
           thread_content.author[i]=author;
